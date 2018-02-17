@@ -10,6 +10,9 @@ class createTest extends TestCase
 {
     public function testCreate(): void
     {
-        $this->assertTrue(Ean13::validate(create('1')));
+        $calculated = create('123');
+
+        $this->assertSame('0000000001236', $calculated);
+        $this->assertTrue(Ean13::validate($calculated));
     }
 }
